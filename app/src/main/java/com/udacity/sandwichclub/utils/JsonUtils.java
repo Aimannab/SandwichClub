@@ -16,7 +16,7 @@ public class JsonUtils {
         try {
             JSONObject sandwichJSON = new JSONObject(json);
             JSONObject nameJSON = sandwichJSON.getJSONObject("name");
-            String mainName = nameJSON.getString("name");
+            String mainName = nameJSON.getString("mainName");
 
             String placeOfOrigin = sandwichJSON.getString("placeOfOrigin");
             String description = sandwichJSON.getString("description");
@@ -25,7 +25,7 @@ public class JsonUtils {
             JSONArray alsoKnownAsJSONArray = nameJSON.getJSONArray("alsoKnownAs");
             List<String> alsoKnownAsList = convertJSONArrayToListOfStrings(alsoKnownAsJSONArray);
 
-            JSONArray ingredientsJSONArray = sandwichJSON.getJSONArray("ingredientsJSONArray");
+            JSONArray ingredientsJSONArray = sandwichJSON.getJSONArray("ingredients");
             List<String> ingredientsList = convertJSONArrayToListOfStrings(ingredientsJSONArray);
 
             Sandwich sandwich = new Sandwich(mainName, alsoKnownAsList, placeOfOrigin, description, image, ingredientsList);
