@@ -3,6 +3,7 @@ package com.udacity.sandwichclub;
 import android.animation.StateListAnimator;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
@@ -20,6 +21,7 @@ public class DetailActivity extends AppCompatActivity {
 
     private Sandwich sandwich;
 
+    CollapsingToolbarLayout collapsingToolbar;
     ImageView ingredientsImageView;
     TextView originTextView;
     TextView ingredientsTextView;
@@ -32,6 +34,7 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
+        collapsingToolbar = findViewById(R.id.collapsing_toolbar);
         ingredientsImageView = findViewById(R.id.image_iv);
         originTextView = findViewById(R.id.origin_tv);
         ingredientsTextView = findViewById(R.id.ingredients_tv);

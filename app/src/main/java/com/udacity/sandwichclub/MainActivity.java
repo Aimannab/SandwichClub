@@ -2,6 +2,7 @@ package com.udacity.sandwichclub;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -10,10 +11,14 @@ import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
 
+    CollapsingToolbarLayout collapsingToolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        collapsingToolbar = findViewById(R.id.collapsing_toolbar);
 
         String[] sandwiches = getResources().getStringArray(R.array.sandwich_names);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
