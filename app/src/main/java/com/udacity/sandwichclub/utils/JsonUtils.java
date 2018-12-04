@@ -16,11 +16,11 @@ public class JsonUtils {
         try {
             JSONObject sandwichJSON = new JSONObject(json);
             JSONObject nameJSON = sandwichJSON.getJSONObject("name");
-            String mainName = nameJSON.getString("mainName");
+            String mainName = nameJSON.optString("mainName");
 
-            String placeOfOrigin = sandwichJSON.getString("placeOfOrigin");
-            String description = sandwichJSON.getString("description");
-            String image = sandwichJSON.getString("image");
+            String placeOfOrigin = sandwichJSON.optString("placeOfOrigin");
+            String description = sandwichJSON.optString("description");
+            String image = sandwichJSON.optString("image");
 
             JSONArray alsoKnownAsJSONArray = nameJSON.getJSONArray("alsoKnownAs");
             List<String> alsoKnownAsList = convertJSONArrayToListOfStrings(alsoKnownAsJSONArray);

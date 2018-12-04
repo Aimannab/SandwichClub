@@ -14,6 +14,9 @@ import com.squareup.picasso.Picasso;
 import com.udacity.sandwichclub.model.Sandwich;
 import com.udacity.sandwichclub.utils.JsonUtils;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class DetailActivity extends AppCompatActivity {
 
     public static final String EXTRA_POSITION = "extra_position";
@@ -21,11 +24,22 @@ public class DetailActivity extends AppCompatActivity {
 
     private Sandwich sandwich;
 
+    @BindView(R.id.collapsing_toolbar)
     CollapsingToolbarLayout collapsingToolbar;
+
+    @BindView(R.id.image_iv)
     ImageView ingredientsImageView;
+
+    @BindView(R.id.origin_tv)
     TextView originTextView;
+
+    @BindView(R.id.ingredients_tv)
     TextView ingredientsTextView;
+
+    @BindView(R.id.also_known_tv)
     TextView alsoKnownAsTextView;
+
+    @BindView(R.id.description_tv)
     TextView descriptionTextView;
 
 
@@ -33,13 +47,7 @@ public class DetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
-
-        collapsingToolbar = findViewById(R.id.collapsing_toolbar);
-        ingredientsImageView = findViewById(R.id.image_iv);
-        originTextView = findViewById(R.id.origin_tv);
-        ingredientsTextView = findViewById(R.id.ingredients_tv);
-        alsoKnownAsTextView = findViewById(R.id.also_known_tv);
-        descriptionTextView = findViewById(R.id.description_tv);
+        ButterKnife.bind(this);
 
         Intent intent = getIntent();
         if (intent == null) {
@@ -85,13 +93,16 @@ public class DetailActivity extends AppCompatActivity {
             }
             alsoKnownAsTextView.setText(stringBuilder.toString());
         } else {
-            alsoKnownAsTextView.setVisibility(View.GONE);
+            //alsoKnownAsTextView.setVisibility(View.GONE);
+            alsoKnownAsTextView.setText("Unknown right now.");
+
         }
 
         //Setting text for placeOfOrigin
         if (sandwich.getPlaceOfOrigin().isEmpty()) {
-            originTextView.setVisibility(View.GONE);
-            originTextView.setVisibility(View.GONE);
+            //originTextView.setVisibility(View.GONE);
+            //originTextView.setVisibility(View.GONE);
+            originTextView.setText("Unknown right now.");
         } else {
             originTextView.setText(sandwich.getPlaceOfOrigin());
         }
